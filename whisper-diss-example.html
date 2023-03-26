@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>The TitleKabaret Moralnego Niepokoju -  Ordo Iuris | Kabaret na żywo. Nowy skŁAD 2</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			font-size: 14px;
+			color: #111;
+			padding: 0 0 1em 0;
+			background-color: #efe7dd;
+		}
+
+		table {
+			border-spacing: 10px;
+		}
+
+		th {
+			text-align: left;
+		}
+
+		.lt {
+			color: inherit;
+			text-decoration: inherit;
+		}
+
+		.l {
+			color: #050;
+		}
+
+		.s {
+			display: inline-block;
+		}
+
+		.c {
+			display: inline-block;
+		}
+
+		.e {
+			/*background-color: white; Changing background color */
+			border-radius: 10px;
+			/* Making border radius */
+			width: 50%;
+			/* Making auto-sizable width */
+			padding: 0 0 0 0;
+			/* Making space around letters */
+			font-size: 14px;
+			/* Changing font size */
+			margin-bottom: 0;
+		}
+
+		.t {
+			display: inline-block;
+		}
+
+		#player-div {
+			position: sticky;
+			top: 20px;
+			float: right;
+			width: 40%
+		}
+
+		#player {
+			aspect-ratio: 16 / 9;
+			width: 100%;
+			height: auto;
+
+		}
+
+		a {
+			display: inline;
+		}
+	</style>
+	<script>
+		var tag = document.createElement('script');
+		tag.src = "https://www.youtube.com/iframe_api";
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		var player;
+		function onYouTubeIframeAPIReady() {
+			player = new YT.Player('player', {
+				//height: '210',
+				//width: '340',
+				videoId: 'tYrRpU4QUug',
+			});
+
+
+
+			// This is the source "window" that will emit the events.
+			var iframeWindow = player.getIframe().contentWindow;
+			var lastword = null;
+
+			// So we can compare against new updates.
+			var lastTimeUpdate = "-1";
+
+			// Listen to events triggered by postMessage,
+			// this is how different windows in a browser
+			// (such as a popup or iFrame) can communicate.
+			// See: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+			window.addEventListener("message", function (event) {
+				// Check that the event was sent from the YouTube IFrame.
+				if (event.source === iframeWindow) {
+					var data = JSON.parse(event.data);
+
+					// The "infoDelivery" event is used by YT to transmit any
+					// kind of information change in the player,
+					// such as the current time or a playback quality change.
+					if (
+						data.event === "infoDelivery" &&
+						data.info &&
+						data.info.currentTime
+					) {
+						// currentTime is emitted very frequently (milliseconds),
+						// but we only care about whole second changes.
+						var ts = (data.info.currentTime).toFixed(1).toString();
+						ts = (Math.round((data.info.currentTime) * 5) / 5).toFixed(1);
+						ts = ts.toString();
+						console.log(ts)
+						if (ts !== lastTimeUpdate) {
+							lastTimeUpdate = ts;
+
+							// It's now up to you to format the time.
+							//document.getElementById("time2").innerHTML = time;
+							word = document.getElementById(ts)
+							if (word) {
+								if (lastword) {
+									lastword.style.fontWeight = 'normal';
+								}
+								lastword = word;
+								//word.style.textDecoration = 'underline';
+								word.style.fontWeight = 'bold';
+
+								let toggle = document.getElementById("autoscroll");
+								if (toggle.checked) {
+									let position = word.offsetTop - 10;
+									window.scrollTo({
+										top: position,
+										behavior: 'smooth'
+									});
+								}
+
+							}
+						}
+					}
+				}
+			})
+		}
+		function jumptoTime(timepoint, id) {
+			event.preventDefault();
+			history.pushState(null, null, "#" + id);
+			player.seekTo(timepoint);
+			player.playVideo();
+		}
+	</script>
+</head>
+
+<body>
+	<h2>Kabaret Moralnego Niepokoju -  Ordo Iuris | Kabaret na żywo. Nowy skŁAD 2</h2>
+	<i>Click on a part of the transcription, to jump to its video, and get an anchor to it in the address
+		bar<br><br></i>
+	<div id="player-div">
+		<div id="player"></div>
+		<div><label for="autoscroll">auto-scroll: </label>
+			<input type="checkbox" id="autoscroll" checked>
+		</div>
+	</div>
+  <div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:00:000.00" --> "00:00:016.74</span><br>
+				<a href="#00:00:000.00" id="0.0" class="lt" onclick="jumptoTime(0, this.id)"> Masz</a><!--
+				--><a href="#00:00:000.44" id="0.4" class="lt" onclick="jumptoTime(0, this.id)"> problem.</a><!--
+				--><a href="#00:00:001.18" id="1.2" class="lt" onclick="jumptoTime(1, this.id)"> Polega</a><!--
+				--><a href="#00:00:001.36" id="1.4" class="lt" onclick="jumptoTime(1, this.id)"> na</a><!--
+				--><a href="#00:00:001.52" id="1.6" class="lt" onclick="jumptoTime(1, this.id)"> tym,</a><!--
+				--><a href="#00:00:002.02" id="2.0" class="lt" onclick="jumptoTime(2, this.id)"> że</a><!--
+				--><a href="#00:00:002.12" id="2.2" class="lt" onclick="jumptoTime(2, this.id)"> jest</a><!--
+				--><a href="#00:00:002.36" id="2.4" class="lt" onclick="jumptoTime(2, this.id)"> późno.</a><!--
+				--><a href="#00:00:002.94" id="3.0" class="lt" onclick="jumptoTime(2, this.id)"> To</a><!--
+				--><a href="#00:00:003.02" id="3.0" class="lt" onclick="jumptoTime(3, this.id)"> jest</a><!--
+				--><a href="#00:00:003.18" id="3.2" class="lt" onclick="jumptoTime(3, this.id)"> jedyny</a><!--
+				--><a href="#00:00:003.46" id="3.4" class="lt" onclick="jumptoTime(3, this.id)"> hotel</a><!--
+				--><a href="#00:00:003.68" id="3.6" class="lt" onclick="jumptoTime(3, this.id)"> w</a><!--
+				--><a href="#00:00:003.86" id="3.8" class="lt" onclick="jumptoTime(3, this.id)"> okolicy.</a><!--
+				--><a href="#00:00:004.62" id="4.6" class="lt" onclick="jumptoTime(4, this.id)"> Nie</a><!--
+				--><a href="#00:00:004.70" id="4.8" class="lt" onclick="jumptoTime(4, this.id)"> ma</a><!--
+				--><a href="#00:00:004.84" id="4.8" class="lt" onclick="jumptoTime(4, this.id)"> tu</a><!--
+				--><a href="#00:00:004.98" id="5.0" class="lt" onclick="jumptoTime(4, this.id)"> żadnych</a><!--
+				--><a href="#00:00:005.28" id="5.2" class="lt" onclick="jumptoTime(5, this.id)"> prywatnych</a><!--
+				--><a href="#00:00:005.92" id="6.0" class="lt" onclick="jumptoTime(5, this.id)"> kwater.</a><!--
+				--><a href="#00:00:006.74" id="6.8" class="lt" onclick="jumptoTime(6, this.id)"> Na</a><!--
+				--><a href="#00:00:006.88" id="6.8" class="lt" onclick="jumptoTime(6, this.id)"> dworze</a><!--
+				--><a href="#00:00:007.16" id="7.2" class="lt" onclick="jumptoTime(7, this.id)"> jest</a><!--
+				--><a href="#00:00:007.34" id="7.4" class="lt" onclick="jumptoTime(7, this.id)"> minus</a><!--
+				--><a href="#00:00:007.66" id="7.6" class="lt" onclick="jumptoTime(7, this.id)"> trzydzieści.</a><!--
+				--><a href="#00:00:008.44" id="8.4" class="lt" onclick="jumptoTime(8, this.id)"> No</a><!--
+				--><a href="#00:00:008.64" id="8.6" class="lt" onclick="jumptoTime(8, this.id)"> jest.</a><!--
+				--><a href="#00:00:009.08" id="9.0" class="lt" onclick="jumptoTime(9, this.id)"> I</a><!--
+				--><a href="#00:00:009.22" id="9.2" class="lt" onclick="jumptoTime(9, this.id)"> macie</a><!--
+				--><a href="#00:00:009.54" id="9.6" class="lt" onclick="jumptoTime(9, this.id)"> przebite</a><!--
+				--><a href="#00:00:009.86" id="9.8" class="lt" onclick="jumptoTime(9, this.id)"> opony</a><!--
+				--><a href="#00:00:010.12" id="10.2" class="lt" onclick="jumptoTime(10, this.id)"> w</a><!--
+				--><a href="#00:00:010.28" id="10.2" class="lt" onclick="jumptoTime(10, this.id)"> samochodzie.</a><!--
+				--><a href="#00:00:011.00" id="11.0" class="lt" onclick="jumptoTime(11, this.id)"> Co?!</a><!--
+				--><a href="#00:00:011.94" id="12.0" class="lt" onclick="jumptoTime(11, this.id)"> Ale</a><!--
+				--><a href="#00:00:012.12" id="12.2" class="lt" onclick="jumptoTime(12, this.id)"> jak</a><!--
+				--><a href="#00:00:012.30" id="12.4" class="lt" onclick="jumptoTime(12, this.id)"> to</a><!--
+				--><a href="#00:00:012.40" id="12.4" class="lt" onclick="jumptoTime(12, this.id)"> przebite</a><!--
+				--><a href="#00:00:012.76" id="12.8" class="lt" onclick="jumptoTime(12, this.id)"> opony?</a><!--
+				--><a href="#00:00:013.36" id="13.4" class="lt" onclick="jumptoTime(13, this.id)"> Nasz</a><!--
+				--><a href="#00:00:013.66" id="13.6" class="lt" onclick="jumptoTime(13, this.id)"> portier</a><!--
+				--><a href="#00:00:014.12" id="14.2" class="lt" onclick="jumptoTime(14, this.id)"> wcześniej</a><!--
+				--><a href="#00:00:014.58" id="14.6" class="lt" onclick="jumptoTime(14, this.id)"> pracował</a><!--
+				--><a href="#00:00:015.00" id="15.0" class="lt" onclick="jumptoTime(15, this.id)"> w</a><!--
+				--><a href="#00:00:015.14" id="15.2" class="lt" onclick="jumptoTime(15, this.id)"> kiosku</a><!--
+				--><a href="#00:00:015.56" id="15.6" class="lt" onclick="jumptoTime(15, this.id)"> i</a><!--
+				--><a href="#00:00:015.72" id="15.8" class="lt" onclick="jumptoTime(15, this.id)"> dziurawił</a><!--
+				--><a href="#00:00:016.12" id="16.2" class="lt" onclick="jumptoTime(16, this.id)"> prezerwatywy.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:00:012.00" --> "00:00:012.40</span><br>
+				<a href="#00:00:012.00" id="12.0" class="lt" onclick="jumptoTime(11, this.id)"> Ale</a><!--
+				--><a href="#00:00:012.14" id="12.2" class="lt" onclick="jumptoTime(12, this.id)"> jak</a><!--
+				--><a href="#00:00:012.26" id="12.2" class="lt" onclick="jumptoTime(12, this.id)"> to</a><!--
+				--><a href="#00:00:012.34" id="12.4" class="lt" onclick="jumptoTime(12, this.id)"> przyjdzie?</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:00:017.52" --> "00:00:031.25</span><br>
+				<a href="#00:00:017.52" id="17.6" class="lt" onclick="jumptoTime(17, this.id)"> Na</a><!--
+				--><a href="#00:00:017.88" id="17.8" class="lt" onclick="jumptoTime(17, this.id)"> stare</a><!--
+				--><a href="#00:00:018.05" id="18.0" class="lt" onclick="jumptoTime(18, this.id)"> lata</a><!--
+				--><a href="#00:00:018.27" id="18.2" class="lt" onclick="jumptoTime(18, this.id)"> się</a><!--
+				--><a href="#00:00:018.54" id="18.6" class="lt" onclick="jumptoTime(18, this.id)"> zradykalizował</a><!--
+				--><a href="#00:00:019.27" id="19.2" class="lt" onclick="jumptoTime(19, this.id)"> i</a><!--
+				--><a href="#00:00:019.43" id="19.4" class="lt" onclick="jumptoTime(19, this.id)"> dziurami</a><!--
+				--><a href="#00:00:019.77" id="19.8" class="lt" onclick="jumptoTime(19, this.id)"> wszystko,</a><!--
+				--><a href="#00:00:020.73" id="20.8" class="lt" onclick="jumptoTime(20, this.id)"> co</a><!--
+				--><a href="#00:00:020.91" id="21.0" class="lt" onclick="jumptoTime(20, this.id)"> jest</a><!--
+				--><a href="#00:00:021.66" id="21.6" class="lt" onclick="jumptoTime(21, this.id)"> z</a><!--
+				--><a href="#00:00:022.02" id="22.0" class="lt" onclick="jumptoTime(22, this.id)"> gumy.</a><!--
+				--><a href="#00:00:022.71" id="22.8" class="lt" onclick="jumptoTime(22, this.id)"> Oczywiście</a><!--
+				--><a href="#00:00:023.16" id="23.2" class="lt" onclick="jumptoTime(23, this.id)"> rano</a><!--
+				--><a href="#00:00:023.43" id="23.4" class="lt" onclick="jumptoTime(23, this.id)"> naprawimy</a><!--
+				--><a href="#00:00:024.16" id="24.2" class="lt" onclick="jumptoTime(24, this.id)"> wasz</a><!--
+				--><a href="#00:00:024.50" id="24.4" class="lt" onclick="jumptoTime(24, this.id)"> samochód</a><!--
+				--><a href="#00:00:024.73" id="24.8" class="lt" onclick="jumptoTime(24, this.id)"> na</a><!--
+				--><a href="#00:00:024.88" id="24.8" class="lt" onclick="jumptoTime(24, this.id)"> koszt</a><!--
+				--><a href="#00:00:025.14" id="25.2" class="lt" onclick="jumptoTime(25, this.id)"> hotelu</a><!--
+				--><a href="#00:00:025.43" id="25.4" class="lt" onclick="jumptoTime(25, this.id)"> pod</a><!--
+				--><a href="#00:00:025.59" id="25.6" class="lt" onclick="jumptoTime(25, this.id)"> warunkiem,</a><!--
+				--><a href="#00:00:026.64" id="26.6" class="lt" onclick="jumptoTime(26, this.id)"> że</a><!--
+				--><a href="#00:00:027.04" id="27.0" class="lt" onclick="jumptoTime(27, this.id)"> będziecie</a><!--
+				--><a href="#00:00:027.45" id="27.4" class="lt" onclick="jumptoTime(27, this.id)"> zachowywać</a><!--
+				--><a href="#00:00:027.86" id="27.8" class="lt" onclick="jumptoTime(27, this.id)"> się</a><!--
+				--><a href="#00:00:028.02" id="28.0" class="lt" onclick="jumptoTime(28, this.id)"> zgodnie</a><!--
+				--><a href="#00:00:028.27" id="28.2" class="lt" onclick="jumptoTime(28, this.id)"> z</a><!--
+				--><a href="#00:00:028.36" id="28.4" class="lt" onclick="jumptoTime(28, this.id)"> klauzolą</a><!--
+				--><a href="#00:00:028.93" id="29.0" class="lt" onclick="jumptoTime(28, this.id)"> sumier.</a><!--
+				--><a href="#00:00:029.82" id="29.8" class="lt" onclick="jumptoTime(29, this.id)"> Was</a><!--
+				--><a href="#00:00:030.00" id="30.0" class="lt" onclick="jumptoTime(29, this.id)"> to</a><!--
+				--><a href="#00:00:030.14" id="30.2" class="lt" onclick="jumptoTime(30, this.id)"> chyba</a><!--
+				--><a href="#00:00:030.38" id="30.4" class="lt" onclick="jumptoTime(30, this.id)"> wszystkich</a><!--
+				--><a href="#00:00:030.68" id="30.6" class="lt" onclick="jumptoTime(30, this.id)"> posrało,</a><!--
+				--><a href="#00:00:031.23" id="31.2" class="lt" onclick="jumptoTime(31, this.id)"> co?</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:00:031.53" --> "00:00:043.05</span><br>
+				<a href="#00:00:031.53" id="31.6" class="lt" onclick="jumptoTime(31, this.id)"> Przestań!</a><!--
+				--><a href="#00:00:032.75" id="32.8" class="lt" onclick="jumptoTime(32, this.id)"> Czekaj,</a><!--
+				--><a href="#00:00:032.95" id="33.0" class="lt" onclick="jumptoTime(32, this.id)"> ja</a><!--
+				--><a href="#00:00:033.01" id="33.0" class="lt" onclick="jumptoTime(33, this.id)"> to</a><!--
+				--><a href="#00:00:033.17" id="33.2" class="lt" onclick="jumptoTime(33, this.id)"> załatwię.</a><!--
+				--><a href="#00:00:034.47" id="34.4" class="lt" onclick="jumptoTime(34, this.id)"> To</a><!--
+				--><a href="#00:00:034.65" id="34.6" class="lt" onclick="jumptoTime(34, this.id)"> może</a><!--
+				--><a href="#00:00:034.75" id="34.8" class="lt" onclick="jumptoTime(34, this.id)"> zaczniemy</a><!--
+				--><a href="#00:00:035.19" id="35.2" class="lt" onclick="jumptoTime(35, this.id)"> od</a><!--
+				--><a href="#00:00:035.35" id="35.4" class="lt" onclick="jumptoTime(35, this.id)"> początku.</a><!--
+				--><a href="#00:00:036.25" id="36.2" class="lt" onclick="jumptoTime(36, this.id)"> Poprosiłabym</a><!--
+				--><a href="#00:00:037.33" id="37.4" class="lt" onclick="jumptoTime(37, this.id)"> wspólny</a><!--
+				--><a href="#00:00:037.83" id="37.8" class="lt" onclick="jumptoTime(37, this.id)"> pokój.</a><!--
+				--><a href="#00:00:038.57" id="38.6" class="lt" onclick="jumptoTime(38, this.id)"> Z</a><!--
+				--><a href="#00:00:039.39" id="39.4" class="lt" onclick="jumptoTime(39, this.id)"> łóżkiem</a><!--
+				--><a href="#00:00:039.77" id="39.8" class="lt" onclick="jumptoTime(39, this.id)"> małżeńskim.</a><!--
+				--><a href="#00:00:040.97" id="41.0" class="lt" onclick="jumptoTime(40, this.id)"> Ponieważ</a><!--
+				--><a href="#00:00:041.37" id="41.4" class="lt" onclick="jumptoTime(41, this.id)"> jesteśmy</a><!--
+				--><a href="#00:00:041.87" id="41.8" class="lt" onclick="jumptoTime(41, this.id)"> małżeństwem.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:00:044.14" --> "00:00:050.80</span><br>
+				<a href="#00:00:044.14" id="44.2" class="lt" onclick="jumptoTime(44, this.id)"> Mhm,</a><!--
+				--><a href="#00:00:044.88" id="44.8" class="lt" onclick="jumptoTime(44, this.id)"> tak.</a><!--
+				--><a href="#00:00:046.14" id="46.2" class="lt" onclick="jumptoTime(46, this.id)"> Tak</a><!--
+				--><a href="#00:00:047.04" id="47.0" class="lt" onclick="jumptoTime(47, this.id)"> Pani</a><!--
+				--><a href="#00:00:047.28" id="47.2" class="lt" onclick="jumptoTime(47, this.id)"> uważa,</a><!--
+				--><a href="#00:00:048.22" id="48.2" class="lt" onclick="jumptoTime(48, this.id)"> dobrze,</a><!--
+				--><a href="#00:00:048.88" id="48.8" class="lt" onclick="jumptoTime(48, this.id)"> dobrze.</a><!--
+				--><a href="#00:00:049.20" id="49.2" class="lt" onclick="jumptoTime(49, this.id)"> W</a><!--
+				--><a href="#00:00:049.24" id="49.2" class="lt" onclick="jumptoTime(49, this.id)"> takim</a><!--
+				--><a href="#00:00:049.40" id="49.4" class="lt" onclick="jumptoTime(49, this.id)"> razie</a><!--
+				--><a href="#00:00:049.84" id="49.8" class="lt" onclick="jumptoTime(49, this.id)"> proszę</a><!--
+				--><a href="#00:00:050.04" id="50.0" class="lt" onclick="jumptoTime(50, this.id)"> tego</a><!--
+				--><a href="#00:00:050.22" id="50.2" class="lt" onclick="jumptoTime(50, this.id)"> dowieźć.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:00:052.01" --> "00:00:052.49</span><br>
+				<a href="#00:00:052.01" id="52.0" class="lt" onclick="jumptoTime(52, this.id)"> Jak?</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:00:053.62" --> "00:00:054.98</span><br>
+				<a href="#00:00:053.62" id="53.6" class="lt" onclick="jumptoTime(53, this.id)"> Poproszę</a><!--
+				--><a href="#00:00:054.30" id="54.2" class="lt" onclick="jumptoTime(54, this.id)"> akt</a><!--
+				--><a href="#00:00:054.49" id="54.4" class="lt" onclick="jumptoTime(54, this.id)"> małżeństwa.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:00:055.96" --> "00:00:057.70</span><br>
+				<a href="#00:00:055.96" id="56.0" class="lt" onclick="jumptoTime(55, this.id)"> My</a><!--
+				--><a href="#00:00:056.38" id="56.4" class="lt" onclick="jumptoTime(56, this.id)"> nie</a><!--
+				--><a href="#00:00:056.62" id="56.6" class="lt" onclick="jumptoTime(56, this.id)"> nosimy</a><!--
+				--><a href="#00:00:056.82" id="56.8" class="lt" onclick="jumptoTime(56, this.id)"> takich</a><!--
+				--><a href="#00:00:057.00" id="57.0" class="lt" onclick="jumptoTime(56, this.id)"> rzeczy</a><!--
+				--><a href="#00:00:057.24" id="57.2" class="lt" onclick="jumptoTime(57, this.id)"> ze</a><!--
+				--><a href="#00:00:057.40" id="57.4" class="lt" onclick="jumptoTime(57, this.id)"> sobą.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:00:058.87" --> "00:01:013.45</span><br>
+				<a href="#00:00:058.87" id="58.8" class="lt" onclick="jumptoTime(58, this.id)"> Mhm.</a><!--
+				--><a href="#00:00:059.59" id="59.6" class="lt" onclick="jumptoTime(59, this.id)"> W</a><!--
+				--><a href="#00:00:059.75" id="59.8" class="lt" onclick="jumptoTime(59, this.id)"> takim</a><!--
+				--><a href="#00:00:059.95" id="60.0" class="lt" onclick="jumptoTime(59, this.id)"> razie</a><!--
+				--><a href="#00:01:000.19" id="60.2" class="lt" onclick="jumptoTime(60, this.id)"> proszę</a><!--
+				--><a href="#00:01:000.41" id="60.4" class="lt" onclick="jumptoTime(60, this.id)"> okazać</a><!--
+				--><a href="#00:01:000.73" id="60.8" class="lt" onclick="jumptoTime(60, this.id)"> obrączki.</a><!--
+				--><a href="#00:01:002.03" id="62.0" class="lt" onclick="jumptoTime(62, this.id)"> Proszę.</a><!--
+				--><a href="#00:01:003.05" id="63.0" class="lt" onclick="jumptoTime(63, this.id)"> Tu</a><!--
+				--><a href="#00:01:003.23" id="63.2" class="lt" onclick="jumptoTime(63, this.id)"> się</a><!--
+				--><a href="#00:01:003.41" id="63.4" class="lt" onclick="jumptoTime(63, this.id)"> zgadza,</a><!--
+				--><a href="#00:01:003.81" id="63.8" class="lt" onclick="jumptoTime(63, this.id)"> a</a><!--
+				--><a href="#00:01:003.99" id="64.0" class="lt" onclick="jumptoTime(63, this.id)"> tutaj?</a><!--
+				--><a href="#00:01:004.33" id="64.4" class="lt" onclick="jumptoTime(64, this.id)"> Ja</a><!--
+				--><a href="#00:01:004.65" id="64.6" class="lt" onclick="jumptoTime(64, this.id)"> akurat</a><!--
+				--><a href="#00:01:004.91" id="65.0" class="lt" onclick="jumptoTime(64, this.id)"> nie</a><!--
+				--><a href="#00:01:005.13" id="65.2" class="lt" onclick="jumptoTime(65, this.id)"> mam.</a><!--
+				--><a href="#00:01:005.33" id="65.4" class="lt" onclick="jumptoTime(65, this.id)"> Nie</a><!--
+				--><a href="#00:01:005.43" id="65.4" class="lt" onclick="jumptoTime(65, this.id)"> mam.</a><!--
+				--><a href="#00:01:005.77" id="65.8" class="lt" onclick="jumptoTime(65, this.id)"> Znaczy,</a><!--
+				--><a href="#00:01:006.29" id="66.2" class="lt" onclick="jumptoTime(66, this.id)"> w</a><!--
+				--><a href="#00:01:006.33" id="66.4" class="lt" onclick="jumptoTime(66, this.id)"> ogóle</a><!--
+				--><a href="#00:01:006.49" id="66.4" class="lt" onclick="jumptoTime(66, this.id)"> to</a><!--
+				--><a href="#00:01:006.67" id="66.6" class="lt" onclick="jumptoTime(66, this.id)"> mam,</a><!--
+				--><a href="#00:01:006.83" id="66.8" class="lt" onclick="jumptoTime(66, this.id)"> tylko</a><!--
+				--><a href="#00:01:006.95" id="67.0" class="lt" onclick="jumptoTime(66, this.id)"> nie</a><!--
+				--><a href="#00:01:007.11" id="67.2" class="lt" onclick="jumptoTime(67, this.id)"> noszę.</a><!--
+				--><a href="#00:01:008.31" id="68.4" class="lt" onclick="jumptoTime(68, this.id)"> Dlaczego?</a><!--
+				--><a href="#00:01:009.93" id="70.0" class="lt" onclick="jumptoTime(69, this.id)"> Mam</a><!--
+				--><a href="#00:01:010.17" id="70.2" class="lt" onclick="jumptoTime(70, this.id)"> uczleń</a><!--
+				--><a href="#00:01:010.57" id="70.6" class="lt" onclick="jumptoTime(70, this.id)"> na</a><!--
+				--><a href="#00:01:010.71" id="70.8" class="lt" onclick="jumptoTime(70, this.id)"> złoto.</a><!--
+				--><a href="#00:01:011.53" id="71.6" class="lt" onclick="jumptoTime(71, this.id)"> Dlatego</a><!--
+				--><a href="#00:01:011.75" id="71.8" class="lt" onclick="jumptoTime(71, this.id)"> nie</a><!--
+				--><a href="#00:01:011.97" id="72.0" class="lt" onclick="jumptoTime(71, this.id)"> mógłbym</a><!--
+				--><a href="#00:01:012.21" id="72.2" class="lt" onclick="jumptoTime(72, this.id)"> być</a><!--
+				--><a href="#00:01:012.41" id="72.4" class="lt" onclick="jumptoTime(72, this.id)"> biskupem.</a><!--
+				--><a href="#00:01:013.01" id="73.0" class="lt" onclick="jumptoTime(73, this.id)"> Przestań!</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:01:015.16" --> "00:01:015.54</span><br>
+				<a href="#00:01:015.16" id="75.2" class="lt" onclick="jumptoTime(75, this.id)"> rip</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:01:020.51" --> "00:01:022.13</span><br>
+				<a href="#00:01:020.51" id="80.6" class="lt" onclick="jumptoTime(80, this.id)"> Widzę,</a><!--
+				--><a href="#00:01:020.89" id="80.8" class="lt" onclick="jumptoTime(80, this.id)"> że</a><!--
+				--><a href="#00:01:021.03" id="81.0" class="lt" onclick="jumptoTime(81, this.id)"> pcha</a><!--
+				--><a href="#00:01:021.35" id="81.4" class="lt" onclick="jumptoTime(81, this.id)"> się</a><!--
+				--><a href="#00:01:021.53" id="81.6" class="lt" onclick="jumptoTime(81, this.id)"> pan</a><!--
+				--><a href="#00:01:021.73" id="81.8" class="lt" onclick="jumptoTime(81, this.id)"> na</a><!--
+				--><a href="#00:01:021.93" id="82.0" class="lt" onclick="jumptoTime(81, this.id)"> mróz.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:01:022.22" --> "00:01:030.42</span><br>
+				<a href="#00:01:022.22" id="82.2" class="lt" onclick="jumptoTime(82, this.id)"> Nie,</a><!--
+				--><a href="#00:01:022.92" id="83.0" class="lt" onclick="jumptoTime(82, this.id)"> nie,</a><!--
+				--><a href="#00:01:023.10" id="83.2" class="lt" onclick="jumptoTime(83, this.id)"> nie,</a><!--
+				--><a href="#00:01:023.12" id="83.2" class="lt" onclick="jumptoTime(83, this.id)"> nie,</a><!--
+				--><a href="#00:01:023.98" id="84.0" class="lt" onclick="jumptoTime(83, this.id)"> bo</a><!--
+				--><a href="#00:01:023.98" id="84.0" class="lt" onclick="jumptoTime(83, this.id)"> chodzi</a><!--
+				--><a href="#00:01:024.20" id="84.2" class="lt" onclick="jumptoTime(84, this.id)"> o</a><!--
+				--><a href="#00:01:024.48" id="84.4" class="lt" onclick="jumptoTime(84, this.id)"> to,</a><!--
+				--><a href="#00:01:024.94" id="85.0" class="lt" onclick="jumptoTime(84, this.id)"> że</a><!--
+				--><a href="#00:01:025.02" id="85.0" class="lt" onclick="jumptoTime(85, this.id)"> po</a><!--
+				--><a href="#00:01:025.10" id="85.2" class="lt" onclick="jumptoTime(85, this.id)"> prostu</a><!--
+				--><a href="#00:01:025.42" id="85.4" class="lt" onclick="jumptoTime(85, this.id)"> te</a><!--
+				--><a href="#00:01:025.64" id="85.6" class="lt" onclick="jumptoTime(85, this.id)"> obrączki</a><!--
+				--><a href="#00:01:025.96" id="86.0" class="lt" onclick="jumptoTime(85, this.id)"> są</a><!--
+				--><a href="#00:01:026.12" id="86.2" class="lt" onclick="jumptoTime(86, this.id)"> za</a><!--
+				--><a href="#00:01:026.38" id="86.4" class="lt" onclick="jumptoTime(86, this.id)"> duże,</a><!--
+				--><a href="#00:01:026.64" id="86.6" class="lt" onclick="jumptoTime(86, this.id)"> a</a><!--
+				--><a href="#00:01:026.72" id="86.8" class="lt" onclick="jumptoTime(86, this.id)"> jak</a><!--
+				--><a href="#00:01:026.80" id="86.8" class="lt" onclick="jumptoTime(86, this.id)"> jest</a><!--
+				--><a href="#00:01:027.00" id="87.0" class="lt" onclick="jumptoTime(87, this.id)"> zimno,</a><!--
+				--><a href="#00:01:027.76" id="87.8" class="lt" onclick="jumptoTime(87, this.id)"> to</a><!--
+				--><a href="#00:01:027.76" id="87.8" class="lt" onclick="jumptoTime(87, this.id)"> się</a><!--
+				--><a href="#00:01:027.90" id="88.0" class="lt" onclick="jumptoTime(87, this.id)"> mężowi</a><!--
+				--><a href="#00:01:028.32" id="88.4" class="lt" onclick="jumptoTime(88, this.id)"> suwa,</a><!--
+				--><a href="#00:01:028.98" id="89.0" class="lt" onclick="jumptoTime(88, this.id)"> no</a><!--
+				--><a href="#00:01:028.98" id="89.0" class="lt" onclick="jumptoTime(88, this.id)"> i</a><!--
+				--><a href="#00:01:029.08" id="89.0" class="lt" onclick="jumptoTime(89, this.id)"> po</a><!--
+				--><a href="#00:01:029.14" id="89.2" class="lt" onclick="jumptoTime(89, this.id)"> prostu</a><!--
+				--><a href="#00:01:029.30" id="89.4" class="lt" onclick="jumptoTime(89, this.id)"> boi</a><!--
+				--><a href="#00:01:029.56" id="89.6" class="lt" onclick="jumptoTime(89, this.id)"> się</a><!--
+				--><a href="#00:01:029.64" id="89.6" class="lt" onclick="jumptoTime(89, this.id)"> tego,</a><!--
+				--><a href="#00:01:029.92" id="90.0" class="lt" onclick="jumptoTime(89, this.id)"> nie?</a><!--
+				--><a href="#00:01:030.04" id="90.0" class="lt" onclick="jumptoTime(90, this.id)"> Także...</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:01:030.45" --> "00:01:034.43</span><br>
+				<a href="#00:01:030.45" id="90.4" class="lt" onclick="jumptoTime(90, this.id)"> A</a><!--
+				--><a href="#00:01:030.89" id="90.8" class="lt" onclick="jumptoTime(90, this.id)"> może</a><!--
+				--><a href="#00:01:031.03" id="91.0" class="lt" onclick="jumptoTime(91, this.id)"> nie</a><!--
+				--><a href="#00:01:031.19" id="91.2" class="lt" onclick="jumptoTime(91, this.id)"> nosi</a><!--
+				--><a href="#00:01:031.41" id="91.4" class="lt" onclick="jumptoTime(91, this.id)"> pan</a><!--
+				--><a href="#00:01:031.55" id="91.6" class="lt" onclick="jumptoTime(91, this.id)"> obroczki</a><!--
+				--><a href="#00:01:031.93" id="92.0" class="lt" onclick="jumptoTime(91, this.id)"> dlatego,</a><!--
+				--><a href="#00:01:032.47" id="92.4" class="lt" onclick="jumptoTime(92, this.id)"> że</a><!--
+				--><a href="#00:01:032.53" id="92.6" class="lt" onclick="jumptoTime(92, this.id)"> to</a><!--
+				--><a href="#00:01:032.69" id="92.6" class="lt" onclick="jumptoTime(92, this.id)"> płoszy</a><!--
+				--><a href="#00:01:032.99" id="93.0" class="lt" onclick="jumptoTime(92, this.id)"> panny?</a><!--
+				--><a href="#00:01:033.99" id="94.0" class="lt" onclick="jumptoTime(93, this.id)"> Zwariował?</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:01:034.17" --> "00:01:039.05</span><br>
+				<a href="#00:01:034.17" id="94.2" class="lt" onclick="jumptoTime(94, this.id)"> Prawo</a><!--
+				--><a href="#00:01:034.58" id="94.6" class="lt" onclick="jumptoTime(94, this.id)"> pan.</a><!--
+				--><a href="#00:01:035.33" id="95.4" class="lt" onclick="jumptoTime(95, this.id)"> Ale</a><!--
+				--><a href="#00:01:035.53" id="95.6" class="lt" onclick="jumptoTime(95, this.id)"> szczerze,</a><!--
+				--><a href="#00:01:035.86" id="95.8" class="lt" onclick="jumptoTime(95, this.id)"> Zygmunt?</a><!--
+				--><a href="#00:01:037.72" id="97.8" class="lt" onclick="jumptoTime(97, this.id)"> Też</a><!--
+				--><a href="#00:01:037.91" id="98.0" class="lt" onclick="jumptoTime(97, this.id)"> się</a><!--
+				--><a href="#00:01:038.06" id="98.0" class="lt" onclick="jumptoTime(98, this.id)"> nad</a><!--
+				--><a href="#00:01:038.19" id="98.2" class="lt" onclick="jumptoTime(98, this.id)"> tym</a><!--
+				--><a href="#00:01:038.33" id="98.4" class="lt" onclick="jumptoTime(98, this.id)"> zastanawiałam.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:01:039.44" --> "00:01:050.22</span><br>
+				<a href="#00:01:039.44" id="99.4" class="lt" onclick="jumptoTime(99, this.id)"> No</a><!--
+				--><a href="#00:01:039.68" id="99.6" class="lt" onclick="jumptoTime(99, this.id)"> co</a><!--
+				--><a href="#00:01:039.84" id="99.8" class="lt" onclick="jumptoTime(99, this.id)"> ty?</a><!--
+				--><a href="#00:01:040.24" id="100.2" class="lt" onclick="jumptoTime(100, this.id)"> No</a><!--
+				--><a href="#00:01:040.38" id="100.4" class="lt" onclick="jumptoTime(100, this.id)"> co</a><!--
+				--><a href="#00:01:040.56" id="100.6" class="lt" onclick="jumptoTime(100, this.id)"> ty</a><!--
+				--><a href="#00:01:040.82" id="100.8" class="lt" onclick="jumptoTime(100, this.id)"> no?</a><!--
+				--><a href="#00:01:041.14" id="101.2" class="lt" onclick="jumptoTime(101, this.id)"> Dobrze,</a><!--
+				--><a href="#00:01:041.38" id="101.4" class="lt" onclick="jumptoTime(101, this.id)"> w</a><!--
+				--><a href="#00:01:041.42" id="101.4" class="lt" onclick="jumptoTime(101, this.id)"> takim</a><!--
+				--><a href="#00:01:041.56" id="101.6" class="lt" onclick="jumptoTime(101, this.id)"> razie</a><!--
+				--><a href="#00:01:041.78" id="101.8" class="lt" onclick="jumptoTime(101, this.id)"> na</a><!--
+				--><a href="#00:01:041.96" id="102.0" class="lt" onclick="jumptoTime(101, this.id)"> palcu</a><!--
+				--><a href="#00:01:042.24" id="102.2" class="lt" onclick="jumptoTime(102, this.id)"> powinien</a><!--
+				--><a href="#00:01:042.56" id="102.6" class="lt" onclick="jumptoTime(102, this.id)"> zostać</a><!--
+				--><a href="#00:01:042.98" id="103.0" class="lt" onclick="jumptoTime(102, this.id)"> ślad.</a><!--
+				--><a href="#00:01:043.30" id="103.4" class="lt" onclick="jumptoTime(103, this.id)"> Poproszę</a><!--
+				--><a href="#00:01:043.58" id="103.6" class="lt" onclick="jumptoTime(103, this.id)"> palec.</a><!--
+				--><a href="#00:01:044.40" id="104.4" class="lt" onclick="jumptoTime(104, this.id)"> Proszę</a><!--
+				--><a href="#00:01:044.56" id="104.6" class="lt" onclick="jumptoTime(104, this.id)"> okazać</a><!--
+				--><a href="#00:01:044.86" id="104.8" class="lt" onclick="jumptoTime(104, this.id)"> palec.</a><!--
+				--><a href="#00:01:045.62" id="105.6" class="lt" onclick="jumptoTime(105, this.id)"> Ja</a><!--
+				--><a href="#00:01:045.80" id="105.8" class="lt" onclick="jumptoTime(105, this.id)"> akurat</a><!--
+				--><a href="#00:01:046.04" id="106.0" class="lt" onclick="jumptoTime(106, this.id)"> na</a><!--
+				--><a href="#00:01:046.20" id="106.2" class="lt" onclick="jumptoTime(106, this.id)"> lewej</a><!--
+				--><a href="#00:01:046.48" id="106.4" class="lt" onclick="jumptoTime(106, this.id)"> noszę.</a><!--
+				--><a href="#00:01:046.94" id="107.0" class="lt" onclick="jumptoTime(106, this.id)"> Na</a><!--
+				--><a href="#00:01:047.08" id="107.0" class="lt" onclick="jumptoTime(107, this.id)"> lewej?</a><!--
+				--><a href="#00:01:047.94" id="108.0" class="lt" onclick="jumptoTime(107, this.id)"> Jak</a><!--
+				--><a href="#00:01:048.08" id="108.0" class="lt" onclick="jumptoTime(108, this.id)"> wdowiec?</a><!--
+				--><a href="#00:01:049.70" id="109.8" class="lt" onclick="jumptoTime(109, this.id)"> Nie</a><!--
+				--><a href="#00:01:049.80" id="109.8" class="lt" onclick="jumptoTime(109, this.id)"> za</a><!--
+				--><a href="#00:01:049.92" id="110.0" class="lt" onclick="jumptoTime(109, this.id)"> szybko?</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:01:051.75" --> "00:01:053.17</span><br>
+				<a href="#00:01:051.75" id="111.8" class="lt" onclick="jumptoTime(111, this.id)"> Właśnie</a><!--
+				--><a href="#00:01:052.11" id="112.2" class="lt" onclick="jumptoTime(112, this.id)"> Zygmunt</a><!--
+				--><a href="#00:01:052.67" id="112.6" class="lt" onclick="jumptoTime(112, this.id)"> wyjaśni.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:01:054.07" --> "00:02:014.37</span><br>
+				<a href="#00:01:054.07" id="114.0" class="lt" onclick="jumptoTime(114, this.id)"> No</a><!--
+				--><a href="#00:01:054.31" id="114.4" class="lt" onclick="jumptoTime(114, this.id)"> przecież</a><!--
+				--><a href="#00:01:054.71" id="114.8" class="lt" onclick="jumptoTime(114, this.id)"> słuchałem</a><!--
+				--><a href="#00:01:055.29" id="115.2" class="lt" onclick="jumptoTime(115, this.id)"> ci</a><!--
+				--><a href="#00:01:055.53" id="115.6" class="lt" onclick="jumptoTime(115, this.id)"> to.</a><!--
+				--><a href="#00:01:055.91" id="116.0" class="lt" onclick="jumptoTime(115, this.id)"> No</a><!--
+				--><a href="#00:01:056.15" id="116.2" class="lt" onclick="jumptoTime(116, this.id)"> co,</a><!--
+				--><a href="#00:01:056.33" id="116.4" class="lt" onclick="jumptoTime(116, this.id)"> co,</a><!--
+				--><a href="#00:01:056.49" id="116.4" class="lt" onclick="jumptoTime(116, this.id)"> co?</a><!--
+				--><a href="#00:01:056.57" id="116.6" class="lt" onclick="jumptoTime(116, this.id)"> No</a><!--
+				--><a href="#00:01:056.67" id="116.6" class="lt" onclick="jumptoTime(116, this.id)"> jestem</a><!--
+				--><a href="#00:01:056.91" id="117.0" class="lt" onclick="jumptoTime(116, this.id)"> leworęczny,</a><!--
+				--><a href="#00:01:058.11" id="118.2" class="lt" onclick="jumptoTime(118, this.id)"> w</a><!--
+				--><a href="#00:01:058.17" id="118.2" class="lt" onclick="jumptoTime(118, this.id)"> lewej</a><!--
+				--><a href="#00:01:058.43" id="118.4" class="lt" onclick="jumptoTime(118, this.id)"> dłoni</a><!--
+				--><a href="#00:01:058.61" id="118.6" class="lt" onclick="jumptoTime(118, this.id)"> mam</a><!--
+				--><a href="#00:01:058.77" id="118.8" class="lt" onclick="jumptoTime(118, this.id)"> grubsze</a><!--
+				--><a href="#00:01:059.13" id="119.2" class="lt" onclick="jumptoTime(119, this.id)"> palce</a><!--
+				--><a href="#00:01:059.37" id="119.4" class="lt" onclick="jumptoTime(119, this.id)"> i</a><!--
+				--><a href="#00:01:059.53" id="119.6" class="lt" onclick="jumptoTime(119, this.id)"> dlatego,</a><!--
+				--><a href="#00:01:059.91" id="120.0" class="lt" onclick="jumptoTime(119, this.id)"> no</a><!--
+				--><a href="#00:01:059.91" id="120.0" class="lt" onclick="jumptoTime(119, this.id)"> żadnych</a><!--
+				--><a href="#00:02:000.19" id="120.2" class="lt" onclick="jumptoTime(120, this.id)"> innych</a><!--
+				--><a href="#00:02:000.43" id="120.4" class="lt" onclick="jumptoTime(120, this.id)"> podtekstów.</a><!--
+				--><a href="#00:02:001.97" id="122.0" class="lt" onclick="jumptoTime(121, this.id)"> No...</a><!--
+				--><a href="#00:02:002.31" id="122.4" class="lt" onclick="jumptoTime(122, this.id)"> Bardzo</a><!--
+				--><a href="#00:02:002.31" id="122.4" class="lt" onclick="jumptoTime(122, this.id)"> ciekawe.</a><!--
+				--><a href="#00:02:003.17" id="123.2" class="lt" onclick="jumptoTime(123, this.id)"> W</a><!--
+				--><a href="#00:02:003.29" id="123.2" class="lt" onclick="jumptoTime(123, this.id)"> takim</a><!--
+				--><a href="#00:02:003.41" id="123.4" class="lt" onclick="jumptoTime(123, this.id)"> razie</a><!--
+				--><a href="#00:02:003.69" id="123.6" class="lt" onclick="jumptoTime(123, this.id)"> proszę</a><!--
+				--><a href="#00:02:003.91" id="124.0" class="lt" onclick="jumptoTime(123, this.id)"> okazać</a><!--
+				--><a href="#00:02:004.27" id="124.2" class="lt" onclick="jumptoTime(124, this.id)"> dowody.</a><!--
+				--><a href="#00:02:005.23" id="125.2" class="lt" onclick="jumptoTime(125, this.id)"> To</a><!--
+				--><a href="#00:02:005.59" id="125.6" class="lt" onclick="jumptoTime(125, this.id)"> akurat...</a><!--
+				--><a href="#00:02:005.97" id="126.0" class="lt" onclick="jumptoTime(125, this.id)"> To</a><!--
+				--><a href="#00:02:005.97" id="126.0" class="lt" onclick="jumptoTime(125, this.id)"> akurat</a><!--
+				--><a href="#00:02:006.15" id="126.2" class="lt" onclick="jumptoTime(126, this.id)"> możemy</a><!--
+				--><a href="#00:02:006.43" id="126.4" class="lt" onclick="jumptoTime(126, this.id)"> zrobić.</a><!--
+				--><a href="#00:02:006.87" id="126.8" class="lt" onclick="jumptoTime(126, this.id)"> No</a><!--
+				--><a href="#00:02:006.95" id="127.0" class="lt" onclick="jumptoTime(126, this.id)"> to</a><!--
+				--><a href="#00:02:007.07" id="127.0" class="lt" onclick="jumptoTime(127, this.id)"> w</a><!--
+				--><a href="#00:02:007.27" id="127.2" class="lt" onclick="jumptoTime(127, this.id)"> każdym</a><!--
+				--><a href="#00:02:007.59" id="127.6" class="lt" onclick="jumptoTime(127, this.id)"> hotelu</a><!--
+				--><a href="#00:02:008.17" id="128.2" class="lt" onclick="jumptoTime(128, this.id)"> chcą.</a><!--
+				--><a href="#00:02:008.83" id="128.8" class="lt" onclick="jumptoTime(128, this.id)"> Proszę.</a><!--
+				--><a href="#00:02:010.17" id="130.2" class="lt" onclick="jumptoTime(130, this.id)"> No</a><!--
+				--><a href="#00:02:010.25" id="130.2" class="lt" onclick="jumptoTime(130, this.id)"> i</a><!--
+				--><a href="#00:02:010.41" id="130.4" class="lt" onclick="jumptoTime(130, this.id)"> zobaczmy.</a><!--
+				--><a href="#00:02:011.19" id="131.2" class="lt" onclick="jumptoTime(131, this.id)"> Tak.</a><!--
+				--><a href="#00:02:013.21" id="133.2" class="lt" onclick="jumptoTime(133, this.id)"> Mamy</a><!--
+				--><a href="#00:02:013.45" id="133.4" class="lt" onclick="jumptoTime(133, this.id)"> tu</a><!--
+				--><a href="#00:02:013.61" id="133.6" class="lt" onclick="jumptoTime(133, this.id)"> dwa</a><!--
+				--><a href="#00:02:013.75" id="133.8" class="lt" onclick="jumptoTime(133, this.id)"> różne</a><!--
+				--><a href="#00:02:013.97" id="134.0" class="lt" onclick="jumptoTime(133, this.id)"> nazwiska.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:02:015.24" --> "00:02:016.74</span><br>
+				<a href="#00:02:015.24" id="135.2" class="lt" onclick="jumptoTime(135, this.id)"> Bo</a><!--
+				--><a href="#00:02:015.66" id="135.6" class="lt" onclick="jumptoTime(135, this.id)"> ja</a><!--
+				--><a href="#00:02:015.81" id="135.8" class="lt" onclick="jumptoTime(135, this.id)"> zostałam</a><!--
+				--><a href="#00:02:016.07" id="136.0" class="lt" onclick="jumptoTime(136, this.id)"> przy</a><!--
+				--><a href="#00:02:016.24" id="136.2" class="lt" onclick="jumptoTime(136, this.id)"> Panieńskim.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: white">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkorange;font-weight: bold;">two"  :   "00:02:017.74" --> "00:02:027.36</span><br>
+				<a href="#00:02:017.74" id="137.8" class="lt" onclick="jumptoTime(137, this.id)"> Dlaczego?</a><!--
+				--><a href="#00:02:018.60" id="138.6" class="lt" onclick="jumptoTime(138, this.id)"> Właśnie,</a><!--
+				--><a href="#00:02:019.06" id="139.0" class="lt" onclick="jumptoTime(139, this.id)"> dlaczego?</a><!--
+				--><a href="#00:02:019.44" id="139.4" class="lt" onclick="jumptoTime(139, this.id)"> Pani</a><!--
+				--><a href="#00:02:019.62" id="139.6" class="lt" onclick="jumptoTime(139, this.id)"> Starostecka,</a><!--
+				--><a href="#00:02:021.66" id="141.6" class="lt" onclick="jumptoTime(141, this.id)"> ja</a><!--
+				--><a href="#00:02:021.74" id="141.8" class="lt" onclick="jumptoTime(141, this.id)"> tutaj</a><!--
+				--><a href="#00:02:021.96" id="142.0" class="lt" onclick="jumptoTime(141, this.id)"> zadaję</a><!--
+				--><a href="#00:02:022.30" id="142.4" class="lt" onclick="jumptoTime(142, this.id)"> pytania,</a><!--
+				--><a href="#00:02:023.10" id="143.2" class="lt" onclick="jumptoTime(143, this.id)"> Panie</a><!--
+				--><a href="#00:02:023.92" id="144.0" class="lt" onclick="jumptoTime(143, this.id)"> Śledź.</a><!--
+				--><a href="#00:02:026.18" id="146.2" class="lt" onclick="jumptoTime(146, this.id)"> Śledź,</a><!--
+				--><a href="#00:02:026.56" id="146.6" class="lt" onclick="jumptoTime(146, this.id)"> wszystko</a><!--
+				--><a href="#00:02:026.70" id="146.8" class="lt" onclick="jumptoTime(146, this.id)"> jasne.</a><!--
+				--></p>
+</div>
+<div class="e" style="background-color: #e1ffc7">
+<p  style="margin:0;padding: 5px 10px 10px 10px;word-wrap:normal;white-space:normal;">
+<span style="color:darkgreen;font-weight: bold;">one"  :   "00:02:027.44" --> "00:02:027.56</span><br>
+				<a href="#00:02:027.44" id="147.4" class="lt" onclick="jumptoTime(147, this.id)"> Cześć!</a><!--
+				--></p>
+</div>
+	</body>
+</html>
